@@ -1,31 +1,476 @@
 
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedCare - Hệ Thống Đặt Lịch Khám Bệnh Trực Tuyến</title>
-    <meta name="description" content="Hệ thống đặt lịch khám bệnh trực tuyến hiện đại - MedCare. Đặt lịch dễ dàng, bác sĩ chuyên khoa, dịch vụ chất lượng cao." />
-    <meta name="author" content="MedCare Team" />
-    <meta name="keywords" content="đặt lịch khám bệnh, phòng khám, bác sĩ, y tế, sức khỏe" />
-
-    <meta property="og:title" content="MedCare - Đặt Lịch Khám Bệnh Trực Tuyến" />
-    <meta property="og:description" content="Hệ thống đặt lịch khám bệnh hiện đại với đội ngũ bác sĩ chuyên khoa giàu kinh nghiệp" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@medcare_vn" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h1>MedCare</h1>
+                </div>
+                
+                <nav class="nav" id="nav">
+                    <a href="#home" class="nav-link active">Trang Chủ</a>
+                    <a href="#about" class="nav-link">Giới Thiệu</a>
+                    <a href="#services" class="nav-link">Dịch Vụ</a>
+                    <a href="#appointment" class="nav-link">Đặt Lịch</a>
+                    <a href="#contact" class="nav-link">Liên Hệ</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <span>0123.456.789</span>
+                    </div>
+                    <button class="btn-primary" onclick="showSection('appointment')">Đặt Lịch Ngay</button>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Hệ Thống Đặt Lịch Khám Bệnh <span class="gradient-text">Hiện Đại</span></h1>
+                        <p>Đặt lịch khám bệnh dễ dàng, nhanh chóng với đội ngũ bác sĩ chuyên khoa giàu kinh nghiệm. Chăm sóc sức khỏe của bạn là ưu tiên hàng đầu của chúng tôi.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="showSection('appointment')">
+                                <i class="fas fa-calendar-plus"></i>
+                                Đặt Lịch Ngay
+                            </button>
+                            <button class="btn-secondary" onclick="showSection('services')">
+                                <i class="fas fa-info-circle"></i>
+                                Tìm Hiểu Thêm
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop" alt="Bác sĩ chuyên nghiệp">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="container">
+                <h2>Tại Sao Chọn MedCare?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Bác Sĩ Chuyên Khoa</h3>
+                        <p>Đội ngũ bác sĩ giàu kinh nghiệm, được đào tạo chuyên sâu</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Đặt Lịch Linh Hoạt</h3>
+                        <p>Hệ thống đặt lịch 24/7, linh hoạt theo thời gian của bạn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>An Toàn & Bảo Mật</h3>
+                        <p>Thông tin cá nhân được bảo mật tuyệt đối</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Chăm Sóc Tận Tâm</h3>
+                        <p>Dịch vụ chăm sóc khách hàng chu đáo, tận tình</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Về Chúng Tôi</h2>
+                    <p>MedCare là hệ thống đặt lịch khám bệnh trực tuyến hàng đầu Việt Nam, được thành lập với sứ mệnh mang đến dịch vụ chăm sóc sức khỏe chất lượng cao và tiện lợi nhất cho người dân.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Bác Sĩ Chuyên Khoa</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10,000+</h3>
+                            <p>Bệnh Nhân Tin Tưởng</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>Năm Kinh Nghiệm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="Về chúng tôi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Dịch Vụ Chuyên Khoa</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Nội Khoa</h3>
+                    <p>Khám và điều trị các bệnh lý nội khoa tổng quát, tim mạch, tiêu hóa</p>
+                    <ul>
+                        <li>Khám sức khỏe tổng quát</li>
+                        <li>Điều trị bệnh tim mạch</li>
+                        <li>Bệnh tiêu hóa</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Ngoại Khoa</h3>
+                    <p>Phẫu thuật các ca bệnh từ đơn giản đến phức tạp với trang thiết bị hiện đại</p>
+                    <ul>
+                        <li>Phẫu thuật tổng quát</li>
+                        <li>Phẫu thuật nội soi</li>
+                        <li>Phẫu thuật thẩm mỹ</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Sản Phụ Khoa</h3>
+                    <p>Chăm sóc sức khỏe sinh sản, thai sản và phụ khoa với đội ngũ chuyên gia</p>
+                    <ul>
+                        <li>Khám thai định kỳ</li>
+                        <li>Siêu âm 4D</li>
+                        <li>Điều trị vô sinh</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Nhi Khoa</h3>
+                    <p>Chăm sóc sức khỏe toàn diện cho trẻ em từ sơ sinh đến 16 tuổi</p>
+                    <ul>
+                        <li>Khám sức khỏe định kỳ</li>
+                        <li>Tiêm chủng đầy đủ</li>
+                        <li>Điều trị bệnh nhi khoa</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Tim Mạch</h3>
+                    <p>Chẩn đoán và điều trị các bệnh lý tim mạch với công nghệ tiên tiến</p>
+                    <ul>
+                        <li>Siêu âm tim</li>
+                        <li>Điện tâm đồ</li>
+                        <li>Can thiệp tim mạch</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Thần Kinh</h3>
+                    <p>Điều trị các bệnh lý về hệ thần kinh với phương pháp hiện đại</p>
+                    <ul>
+                        <li>Điều trị đau đầu</li>
+                        <li>Bệnh Parkinson</li>
+                        <li>Đột quỵ não</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="section">
+        <div class="container">
+            <h2>Đặt Lịch Khám Bệnh</h2>
+            <div class="appointment-form">
+                <div class="form-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Thông Tin Cơ Bản</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Chọn Dịch Vụ</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Xác Nhận</span>
+                    </div>
+                </div>
+
+                <form id="appointmentForm">
+                    <!-- Step 1 -->
+                    <div class="form-step active" id="step1">
+                        <h3>Thông Tin Cá Nhân</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Họ và Tên *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số Điện Thoại *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate">Ngày Sinh</label>
+                                <input type="date" id="birthDate" name="birthDate">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address">Địa Chỉ</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                        </div>
+                        <button type="button" class="btn-primary" onclick="nextStep()">Tiếp Theo</button>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="form-step" id="step2">
+                        <h3>Chọn Dịch Vụ & Thời Gian</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="specialty">Chuyên Khoa *</label>
+                                <select id="specialty" name="specialty" required>
+                                    <option value="">Chọn chuyên khoa</option>
+                                    <option value="noi-khoa">Nội Khoa</option>
+                                    <option value="ngoai-khoa">Ngoại Khoa</option>
+                                    <option value="san-phu-khoa">Sản Phụ Khoa</option>
+                                    <option value="nhi-khoa">Nhi Khoa</option>
+                                    <option value="tim-mach">Tim Mạch</option>
+                                    <option value="than-kinh">Thần Kinh</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="doctor">Bác Sĩ</label>
+                                <select id="doctor" name="doctor">
+                                    <option value="">Để hệ thống chọn bác sĩ phù hợp</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate">Ngày Khám *</label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Giờ Khám *</label>
+                                <select id="appointmentTime" name="appointmentTime" required>
+                                    <option value="">Chọn giờ khám</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="08:30">08:30</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="symptoms">Triệu Chứng / Lý Do Khám</label>
+                                <textarea id="symptoms" name="symptoms" rows="3" placeholder="Mô tả triệu chứng hoặc lý do khám bệnh..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Quay Lại</button>
+                            <button type="button" class="btn-primary" onclick="nextStep()">Tiếp Theo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="form-step" id="step3">
+                        <h3>Xác Nhận Thông Tin</h3>
+                        <div class="confirmation-details" id="confirmationDetails">
+                            <!-- Nội dung xác nhận sẽ được tạo bằng JavaScript -->
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Quay Lại</button>
+                            <button type="submit" class="btn-primary">Xác Nhận Đặt Lịch</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Địa Chỉ</h4>
+                            <p>123 Đường ABC, Quận XYZ, TP.HCM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Điện Thoại</h4>
+                            <p>0123.456.789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@medcare.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Giờ Làm Việc</h4>
+                            <p>T2-T6: 7:00 - 20:00<br>T7-CN: 8:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Gửi Tin Nhắn</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Họ và Tên *</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Số Điện Thoại</label>
+                            <input type="tel" id="contactPhone" name="contactPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Chủ Đề</label>
+                            <input type="text" id="contactSubject" name="contactSubject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Tin Nhắn *</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Gửi Tin Nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>MedCare</h3>
+                    </div>
+                    <p>Hệ thống đặt lịch khám bệnh trực tuyến hiện đại, mang đến sự tiện lợi và chất lượng dịch vụ tốt nhất cho bệnh nhân.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#about">Giới Thiệu</a></li>
+                        <li><a href="#services">Dịch Vụ</a></li>
+                        <li><a href="#appointment">Đặt Lịch</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Chuyên Khoa</h4>
+                    <ul>
+                        <li>Nội Khoa</li>
+                        <li>Ngoại Khoa</li>
+                        <li>Sản Phụ Khoa</li>
+                        <li>Nhi Khoa</li>
+                        <li>Tim Mạch</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Thông Tin Liên Hệ</h4>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ, TP.HCM</p>
+                        <p><i class="fas fa-phone"></i> 0123.456.789</p>
+                        <p><i class="fas fa-envelope"></i> info@medcare.com</p>
+                        <p><i class="fas fa-clock"></i> T2-T6: 7:00 - 20:00<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T7-CN: 8:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MedCare. Tất cả quyền được bảo lưu. Thiết kế bởi Nhóm Đồ Án Tốt Nghiệp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
